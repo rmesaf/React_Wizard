@@ -4,6 +4,7 @@ export const LOAD_reducer = (state = {}, action) => {
     switch (action.type){
         case LOAD:
             return {
+                ...state,
                 data: action.data
             };
         default:

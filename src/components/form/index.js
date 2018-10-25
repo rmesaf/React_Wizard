@@ -6,84 +6,83 @@ import { Field, reduxForm } from 'redux-form';
 // ACTION
 import {load_action} from '../../actions';
 
-
-
 // VARIABLES
 const initialState = {
     firstName: 'Jane',
     lastName: 'Doe',
-    sex: 'female',
 }
 
-let Form = (props) => {
-    const { handleSubmit, load, pristine, submitting } = props;
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <button type="button" onClick={() => load(initialState)}>Load Account</button>
-            </div>
-            <div>
-                <label>First Name</label>
+class Form extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            step: "FORM"
+        }
+    }
+    handleClick(){
+        this.props.load(initialState);
+        console.log(this.props);
+    }
+    handleSubmit(){
+        this.props.nextStep("COMEBACK");
+    }
+    render(){
+        if(this.props.currentStep == this.state.step){
+            return (
                 <div>
-                    <Field 
-                        name= "firstName"
-                        component= "input"
-                        type="text"
-                        placeholder='First Name'
-                    />
+                    <div className="jumbotron">
+                        <h1>FORM</h1>
+                        <form onSubmit={this.handleSubmit.bind(this)}>
+                            <div className="button-container">
+                                <button className="button button-blue" type="button" onClick={this.handleClick.bind(this)} style={{ marginRight: 0}}>Load Account</button>
+                            </div>
+                            <div>
+                                <label>First Name</label>
+                                <div>
+                                    <Field 
+                                        name= "firstName"
+                                        component= "input"
+                                        type="text"
+                                        placeholder='First Name'
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <label>Last Name</label>
+                                <div>
+                                    <Field 
+                                        name= "lastName"
+                                        component= "input"
+                                        type="text"
+                                        placeholder='Last Name'
+                                    />
+                                </div>
+                            </div>
+                            <div className="button-container">
+                                <button className="button button-blue" type="submit" disabled={false}>
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <label>Last Name</label>
-                <div>
-                    <Field 
-                        name= "lastName"
-                        component= "input"
-                        type="text"
-                        placeholder='Last Name'
-                    />
-                </div>
-            </div>
-            <div>
-                <label>Sex</label>
-                <div>
-                    <label>
-                        <Field 
-                            name= "sex"
-                            component= "input"
-                            type="radio"
-                            value='male'
-                        />
-                        Male
-                    </label>
-                    <label>
-                        <Field 
-                            name= "sex"
-                            component= "input"
-                            type="radio"
-                            value='female'
-                        />
-                        Female
-                    </label>
-                </div>
-            </div>
-            <div>
-                <button type="submit" disabled={submitting}>
-                    Submit
-                </button>
-            </div>
-        </form>
-    );
-};
+            );
+        }else{
+            return (null);
+        }
+    }
+}
 
 Form = reduxForm({
     form: 'form',
+    destroyOnUnmount: false,
+    forceUnregisterOnUnmount: true, 
 })(Form);
 
 const mapStateToProps = state => {
     return {
-        initialValues: state.account.data
+        initialValues: state.load.data
     }
 }
 
@@ -101,3 +100,4 @@ Form = connect(
 )(Form);
 
 export default Form;
+

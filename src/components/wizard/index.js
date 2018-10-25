@@ -8,6 +8,7 @@ import style from './wizard.scss';
 
 // COMPONENTS
 import WelcomePage from '../welcome_page';
+import Form from '../form';
 import FinalPage from '../final_page';
 
 // ACTION
@@ -20,8 +21,9 @@ class Wizard extends React.Component {
     }
     render(){
         return (
-            <div>
+            <div className="wizard-container"> 
                 <WelcomePage currentStep={this.props.current} nextStep={this.props.nextStep}/>
+                <Form currentStep={this.props.current} nextStep={this.props.nextStep}/>
                 <FinalPage currentStep={this.props.current} nextStep={this.props.nextStep}/>
             </div>
         );

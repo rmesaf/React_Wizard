@@ -6,6 +6,7 @@ import store from "../../store";
 // COMPONENTS
 import Header from '../../components/header';
 import Wizard from '../../components/wizard';
+import Form from '../../components/form';
 
 // STYLES
 const styles = {
@@ -24,9 +25,7 @@ class Home extends React.Component {
                 <Header />
                 <div className="content" style={styles}>
                     <Provider store={store}>
-                        <div>
-                            <Wizard />
-                        </div>
+                        <Wizard />
                     </Provider>
                 </div>
             </div>

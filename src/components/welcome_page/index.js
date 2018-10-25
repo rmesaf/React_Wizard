@@ -1,12 +1,8 @@
 // DEPENDENCIES
 import React from 'react';
-import { connect } from 'react-redux';
 
 // STYLES
 import styles from '../../styles/main.scss'
-
-// ACTION
-import {next_action} from '../../actions';
 
 
 class WelcomePage extends React.Component {
@@ -18,7 +14,7 @@ class WelcomePage extends React.Component {
         }
     }
     handleClick(e){
-        this.props.nextStep("COMEBACK")
+        this.props.nextStep("FORM")
     }
     render(){
         if(this.props.currentStep == this.state.step){
