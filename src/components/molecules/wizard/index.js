@@ -3,16 +3,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // STYLES
-import styles from '../../styles/main.scss'
+import styles from '../../../styles/main.scss'
 import style from './wizard.scss';
 
-// COMPONENTS
-import WelcomePage from '../welcome_page';
+// MOLECULES
+import Welcome from '../welcome';
 import Form from '../form';
-import FinalPage from '../final_page';
+import Final from '../final';
 
 // ACTION
-import {next_action} from '../../actions';
+import {next_action} from '../../../actions';
 
 
 class Wizard extends React.Component {
@@ -22,9 +22,9 @@ class Wizard extends React.Component {
     render(){
         return (
             <div className="wizard-container"> 
-                <WelcomePage currentStep={this.props.current} nextStep={this.props.nextStep}/>
+                <Welcome currentStep={this.props.current} nextStep={this.props.nextStep}/>
                 <Form currentStep={this.props.current} nextStep={this.props.nextStep}/>
-                <FinalPage currentStep={this.props.current} nextStep={this.props.nextStep}/>
+                <Final currentStep={this.props.current} nextStep={this.props.nextStep}/>
             </div>
         );
     }

@@ -1,37 +1,37 @@
 // DEPENDENCIES
 import React from 'react';
-
+// ATOMS
+import Button from '../../atoms/button';
 // STYLES
-import styles from '../../styles/main.scss'
+import styles from '../../../styles/main.scss'
 
-
-class WelcomePage extends React.Component {
+class Final extends React.Component {
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.state  = {
-            step: "WELCOME"
+            step: "COMEBACK"
         }
     }
     handleClick(e){
-        this.props.nextStep("FORM")
+        this.props.nextStep("WELCOME")
     }
     render(){
         if(this.props.currentStep == this.state.step){
             return (
                 <div>
                     <div className="jumbotron">
-                        <h1>Welcome</h1>
+                        <h1>Come Back Soon</h1>
                     </div>
                     <div className="button-container">
-                        <button className="button button-blue" onClick={this.handleClick}>CONTINUAR</button>
+                        <Button onClick={this.handleClick}>VUELVE</Button>
                     </div>
                 </div>
             );
         }else{
-            return (null);
+            return(null);
         }
     }
 }
 
-export default WelcomePage;
+export default Final;

@@ -17,23 +17,6 @@ body{
     align-items: center;
 }
 
-.button{
-    border-radius: 10000px;
-    text-align: center;
-    min-width: 248px;
-    padding: 5px;
-    margin: 0 auto;
-    font-size: 20px;
-    display: inline-block;
-    &.button-blue{
-        background-color: #4dcbbc;
-        font-family: 'Montserrat', 'nunito';
-        font-weight: 700;
-        color: #292929;
-        border: 1px solid #4dcbbc;
-    }
-}
-
 input{
     font-family: 'Montserrat', 'nunito';
     padding: 10px;
@@ -45,5 +28,26 @@ label{
 }
 
 .button-container{
-    margin: 15px
+    margin: 15px;
+}
+
+.button{
+    border-radius: 10000px;
+    text-align: center;
+    min-width: 248px;
+    padding: 5px;
+    margin: 0 auto;
+    font-size: 20px;
+    display: inline-block;
+    &:focus{
+        outline: none;
+    }
+}
+
+.button-gray{
+    background-color: #bdbdbd;
+    font-family: 'Montserrat', 'nunito';
+    font-weight: 700;
+    color: #292929;
+    border: 1px solid #bdbdbd;
 }

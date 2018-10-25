@@ -1,5 +1,5 @@
 # React Wizard | React
-React Wizard using React-Form
+React Wizard using Redux-Form
 
 ## Prerequisites
 
