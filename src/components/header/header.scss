@@ -1,0 +1,33 @@
+.navbar{
+    width: 100%;
+    height: auto;
+    .container{
+        width: calc(100% - 20px);
+        background: rgba(184, 184, 184, 0.93);
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        .navbar-header{
+            width: 40%;
+            .navbar-brand{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                text-decoration: none;
+                color: #fff;
+
+                .brand-logo{
+                    max-width: 10%;
+                }
+                .brand-logo-text{
+                    margin: 0px 0px 0px 10px;
+                    text-transform: uppercase;
+                }
+            }
+        }
+        .navigation{
+            width: 60%;
+            color: #fff;
+        }
+    }
+}
