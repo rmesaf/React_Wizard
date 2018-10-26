@@ -7,7 +7,7 @@ import styles from './button.scss'
 
 const Button = (props) => {
     return (
-        <button className="button button-blue" onClick={props.onClick}>CONTINUAR</button>
+        <button className="button button-blue" onClick={props.onClick} disabled={props.disabled}>{props.text || "CONTINUAR"} </button>
     );
 }
 

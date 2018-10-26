@@ -8,6 +8,7 @@ import style from './wizard.scss';
 
 // MOLECULES
 import Welcome from '../welcome';
+import Anchor from '../anchor';
 import Form from '../form';
 import Final from '../final';
 
@@ -23,6 +24,7 @@ class Wizard extends React.Component {
         return (
             <div className="wizard-container"> 
                 <Welcome currentStep={this.props.current} nextStep={this.props.nextStep}/>
+                <Anchor currentStep={this.props.current} nextStep={this.props.nextStep}/>
                 <Form currentStep={this.props.current} nextStep={this.props.nextStep}/>
                 <Final currentStep={this.props.current} nextStep={this.props.nextStep}/>
             </div>

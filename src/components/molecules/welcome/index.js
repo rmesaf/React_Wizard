@@ -17,7 +17,7 @@ class Welcome extends React.Component {
         }
     }
     handleClick(e){
-        this.props.nextStep("FORM")
+        this.props.nextStep("ANCHOR")
     }
     render(){
         if(this.props.currentStep == this.state.step){
