@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
-    "build": "webpack",
+    "build": "webpack --mode production",
     "start": "webpack-dev-server --watch --open --hot"
   },
   "repository": {
@@ -30,6 +30,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-modal": "^3.6.1",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",

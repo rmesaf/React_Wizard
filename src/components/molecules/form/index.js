@@ -1,17 +1,11 @@
 // DEPENDECIES
 import React from 'react';
 import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
 // ATOMS
 import Button from '../../atoms/button';
 // ACTION
-import {load_action} from '../../../actions';
-
-// VARIABLES
-const initialState = {
-    firstName: 'Jane',
-    lastName: 'Doe',
-}
+import {load_action, save_action} from '../../../actions';
 
 
 class Form extends React.Component {
@@ -22,10 +16,14 @@ class Form extends React.Component {
         }
     }
     handleClick(){
+        const initialState = (this.props.gender == "FEMENINO" ? {firstName: 'JANE', lastName: 'DOE'} : {firstName: 'JOHN', lastName: 'DOE'} );
         this.props.load(initialState);
-        console.log(this.props);
     }
     handleSubmit(){
+        this.props.save({
+            firstName: this.props.firstName.toUpperCase(),
+            lastName: this.props.lastName.toUpperCase()
+        })
         this.props.nextStep("COMEBACK");
     }
     render(){
@@ -81,9 +79,14 @@ Form = reduxForm({
     forceUnregisterOnUnmount: true, 
 })(Form);
 
+const selector = formValueSelector('form');
+
 const mapStateToProps = state => {
     return {
-        initialValues: state.load.data
+        initialValues: state.load.data,
+        gender: state.wizard.gender,
+        firstName: selector(state, 'firstName'),
+        lastName: selector(state, 'lastName')
     }
 }
 
@@ -91,6 +94,9 @@ const mapDispatchToProps = dispatch => {
     return {
         load(initialState){
             dispatch(load_action(initialState));
+        },
+        save(selection){
+            dispatch(save_action(selection));
         }
     };
 }

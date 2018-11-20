@@ -1,9 +1,12 @@
 // DEPENDENCIES
 import React from 'react';
+import { connect } from 'react-redux';
 //ATOMS
 import Button from '../../atoms/button'
 //STYLES
 import styles from './anchor.scss';
+// ACTION
+import {save_action} from '../../../actions';
 
 class Anchor extends React.Component {
     constructor(props){
@@ -18,14 +21,16 @@ class Anchor extends React.Component {
         e.preventDefault();
         let selection = e.currentTarget.getAttribute('data-value');
         this.setState({
-            ...this.state,
             isOptionSelected: true,
             selected: selection,
         })
     }
     handleClick(e){
         e.preventDefault();
-        this.props.nextStep("FORM")
+        this.props.save({
+            gender: this.state.selected
+        });
+        this.props.nextStep("FORM");
     }
     
     render(){
@@ -46,5 +51,22 @@ class Anchor extends React.Component {
         }
     }
 }
+
+const mapStateToProps = state => {
+    return {}
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        save(selection){
+            dispatch(save_action(selection));
+        }
+    }
+}
+
+Anchor = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Anchor);
 
 export default Anchor;
