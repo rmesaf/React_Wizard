@@ -25,17 +25,18 @@ class Form extends React.Component {
         this.state = {
             step: "FORM"
         }
+        console.log('Enter Constructor')
     }
     handleClick(){
-        const initialState = (this.props.gender == "FEMENINO" ? {firstName: 'JANE', lastName: 'DOE'} : {firstName: 'JOHN', lastName: 'DOE'} );
+        const initialState = (this.props.gender == "Female" ? {firstName: 'Jane', lastName: 'Doe', email: 'jane@doe.co'} : {firstName: 'John', lastName: 'Doe' , email: 'john@doe.co'} );
         this.props.load(initialState);
     }
     handleSubmit(e){
         e.preventDefault();
         this.props.save({
-            firstName: this.props.firstName.toUpperCase(),
-            lastName: this.props.lastName.toUpperCase(),
-            email: this.props.email.toUpperCase()
+            firstName: this.props.firstName,
+            lastName: this.props.lastName,
+            email: this.props.email
         })
         this.props.nextStep("COMEBACK");
     }
@@ -87,7 +88,7 @@ class Form extends React.Component {
                                 </div>
                             </div>
                             <div className="button-container">
-                                <button className="button button-blue" type="submit" disabled={this.props.pristine || this.props.submitting}>
+                                <button className="button button-blue" type="submit" disabled={ this.props.pristine || this.props.submitting}>
                                     Submit
                                 </button>
                             </div>

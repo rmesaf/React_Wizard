@@ -6,7 +6,9 @@ import { connect } from 'react-redux';
 import Button from '../../atoms/button';
 // STYLES
 import styles from '../../../styles/main.scss'
-import style from './styles.scss'
+import style from './styles.scss';
+// ACTION
+import {reset_action} from '../../../actions';
 
 ReactModal.setAppElement('#app');
 
@@ -20,7 +22,8 @@ class Final extends React.Component {
         }
     }
     handleClick(e){
-        this.props.nextStep("WELCOME")
+        console.log(this.state);
+        this.props.reset();
     }
     handleCloseModal(){
         this.setState({
@@ -69,7 +72,11 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-    return {}
+    return {
+        reset(){
+            dispatch(reset_action());
+        }
+    }
 }
 
 Final = connect(

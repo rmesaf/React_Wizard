@@ -3,14 +3,14 @@ export const validate = values => {
     // firstName
     if (!values.firstName) {
         errors.firstName = 'Required'
-    } else if (values.firstName.length < 4) {
-        errors.firstName = 'Must be 4 characters or more'
+    } else if (values.firstName.length < 3) {
+        errors.firstName = 'Must be 3 characters or more'
     }
     // firstName
     if (!values.lastName) {
         errors.lastName = 'Required'
-    } else if (values.lastName.length < 4) {
-        errors.lastName = 'Must be 4 characters or more'
+    } else if (values.lastName.length < 3) {
+        errors.lastName = 'Must be 3 characters or more'
     }
     // email
     if (!values.email) {

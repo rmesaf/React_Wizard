@@ -27,7 +27,7 @@ class Welcome extends React.Component {
                         <h1>Welcome</h1>
                     </div>
                     <div className="button-container">
-                        <Button onClick={this.handleClick}>CONTINUAR</Button>
+                        <Button onClick={this.handleClick} text="NEXT"></Button>
                     </div>
                 </div>
             );

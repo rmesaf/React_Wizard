@@ -38,11 +38,11 @@ class Anchor extends React.Component {
             return (
                 <div>
                     <div className="jumbotron jumbotron-flex">
-                        <a onClick={this.handleSelectionClick.bind(this)} data-value="MASCULINO" className={this.state.selected == 'MASCULINO' ? 'anchor-button active' : 'anchor-button'}>MASCULINO</a>
-                        <a onClick={this.handleSelectionClick.bind(this)} data-value="FEMENINO" className={this.state.selected == 'FEMENINO' ? 'anchor-button active' : 'anchor-button'}>FEMENINO</a>
+                        <a onClick={this.handleSelectionClick.bind(this)} data-value="Male" className={this.state.selected == 'Male' ? 'anchor-button active' : 'anchor-button'}>MALE</a>
+                        <a onClick={this.handleSelectionClick.bind(this)} data-value="Female" className={this.state.selected == 'Female' ? 'anchor-button active' : 'anchor-button'}>FEMALE</a>
                     </div>
                     <div className="button-container">
-                        <Button text="SIGUE" onClick={this.handleClick.bind(this)} disabled={!this.state.isOptionSelected}/>
+                        <Button text="GO ON" onClick={this.handleClick.bind(this)} disabled={!this.state.isOptionSelected}/>
                     </div>
                 </div>
             );
