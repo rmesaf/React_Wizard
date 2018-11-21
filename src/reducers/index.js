@@ -13,7 +13,7 @@ export const LOAD_reducer = (state = {}, action) => {
     }
 }
 
-export const NEXT_reducer = (state = {data: "WELCOME"}, action) => {
+export const NEXT_reducer = (state = {data: "COMEBACK"}, action) => {
     switch (action.type){
         case NEXT:
             return {
